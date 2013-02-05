@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
+        <link href="css/smarter.css" type="text/css" rel="stylesheet" />
+ 
+        <!-- load questions -->
+        <script type="text/javascript" src="scripts/questions.js"></script>
+
+        <!-- Handlebars & templates -->
+        <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="scripts/handlebars.js"></script>
+
+        <!-- Question template -->
+        <script id="question-template" type="text/x-handlebars-template">
+        <div id="question">
+            <p>{{q}}</p>
+            <ol type="A">
+                {{#each c}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ol>
+        </div>
+        </script>
+
+        <script type="text/javascript" language="javascript">
+            var source = $("#question-template").html();
+            var template = Handlebars.compile(source);
+            var idx = 0;
+            var total = questions.length;
+
+            function render(i)
+            {
+               $('#question').replaceWith( template( questions[i] ) );
+            }
+
+            $( function() {
+                // preload
+                render(0);
+
+                // next page
+                $('body').click(function() {
+                    render(Math.abs(++idx % total));
+                });
+                $('body').keydown(function() {
+                    if (event.which == 39 /* arrow right */)
+                    {
+                        render(Math.abs(++idx % total));
+                    } else if (event.which == 37 /* arrow left */)
+                    {
+                        render(Math.abs(--idx % total));
+                    }
+                });
+            });
+        </script>
+   </head>
+    <body>
+        <div id="question"></div>
+   </body>
+</html>
