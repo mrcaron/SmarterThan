@@ -26,4 +26,6 @@ body {
 	margin-left:-30px;
 }
 #categories table td{
+	cursor:pointer;
 }
+

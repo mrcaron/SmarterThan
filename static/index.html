@@ -28,9 +28,10 @@
             var template = Handlebars.compile(source);
             var idx = 0;
             var total = questions.length;
-/*
+
             var active = '';
-	 			var catidx = {
+
+				var catidx = {
 					'Anthem':0,
 					'People':0,
 					'FlagEttiquette':0,
@@ -42,61 +43,62 @@
 					'YourRights':0,
 					'OddsEnds':0
             };
-*/
-            function render(i)
+
+            function render(id,idx)
             {
-	            //$('#categories').slideUp();
-      	      //$('#question').slideDown();
-               $('#question').replaceWith( template( questions[i] ) );
+	            $('#categories').slideUp();
+      	      $('#question').slideDown();
+               $('#question').replaceWith( template( questions[id][idx] ) );
+					active = id;
             }
 
 	         function menu()
             {
-               $('#questions').slideUp();
+               $('#question').slideUp();
                $('#categories').slideDown();
             }
 
             $( function() {
                 // preload
-		         // menu();
-					render(0);
+		          menu();
+					//render(0);
 
-					$('#anthem').click(function() {
+					$('#Anthem').click(function() {
 						render('Anthem',catidx['Anthem']);
 					});
-					$('#people').click(function() {
+					$('#People').click(function() {
 						render('People',catidx['People']);
 					});
 
-					$('#ettiquette').click(function() {
+					$('#Flaget').click(function() {
 						render('FlagEttiquette',catidx['FlagEttiquette']);
 					});
 
-					$('#symbols').click(function() {
+					$('#Symbols').click(function() {
 						render('Symbols',catidx['Symbols']);
 					});
 
-					$('#pledge').click(function() {
+					$('#Pledge').click(function() {
 						render('Pledge',catidx['Pledge']);
 					});
 
-					$('#flaghist').click(function() {
+					$('#FlagHist').click(function() {
 						render('FlagHistory',catidx['FlagHistory']);
 					});
 
-					$('#flagrespect').click(function() {
+					$('#FlagRespect').click(function() {
 						render('FlagRespect',catidx['FlagRespect']);
 					});
 
-					$('#statenames').click(function() {
+					$('#States').click(function() {
 						render('StateNames',catidx['StateNames']);
 					});
 
-					$('#yourrights').click(function() {
+					$('#YourRights').click(function() {
 						render('YourRights',catidx['YourRights']);
 					});
 
-					$('#oddsends').click(function() {
+					$('#OddsEnds').click(function() {
 						render('OddsEnds',catidx['OddsEnds']);
 					});
 
@@ -107,10 +109,10 @@
                 $('body').keydown(function() {
                     if (event.which == 39 /* arrow right */)
                     {
-                        render(Math.abs(++idx) % total);
+                        render(active, Math.abs(++idx) % questions[active].length);
                     } else if (event.which == 37 /* arrow left */)
                     {
-                        render(Math.abs(--idx) % total);
+                        render(active, Math.abs(--idx) % questions[active].length);
                     } else if (event.which == 38 /* arrow up */)
                     {
                         menu();
@@ -120,14 +122,15 @@
         </script>
    </head>
     <body>
-		<!--
         <div id="categories">
 				<table>
-					<tr><td id="anthem">Anthem</td><td id="flaget">Flag Ettiquette</td></tr>
-					<tr><td id="people">People</td><td id="symbols">Symbols</td></tr>
+					<tr><td id="Anthem">Anthem</td><td id="Flaget">Flag Ettiquette</td></tr>
+					<tr><td id="People">People</td><td id="Symbols">Symbols</td></tr>
+					<tr><td id="Pledge">Pledge</td><td id="FlagHist">Flag History</td></tr>
+					<tr><td id="FlagRespect">Flag Respect</td><td id="States">State Names</td></tr>
+					<tr><td id="YourRights">Your Rights</td><td id="OddsEnds">Odds n' Ends</td></tr>
 				</table>
 	     </div>
--->
         <div id="question"></div>
    </body>
 </html>
