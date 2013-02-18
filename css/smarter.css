@@ -2,7 +2,7 @@ body {
     background-image: url("../img/board.jpg");
     background-size: cover;
     font-family: 'eraserdust';
-    font-size: 70pt;
+    font-size: 65pt;
     color: white;
 }
 #question {
@@ -17,6 +17,13 @@ body {
     text-align:center;
 }
 #question ol {
-    width: 50%;
+    width: 60%;
     margin:0px auto;
+}
+#categories table {
+	width: 100%;
+   text-align: center;
+	margin-left:-30px;
+}
+#categories table td{
 }
