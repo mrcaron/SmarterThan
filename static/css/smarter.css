@@ -1,0 +1,29 @@
+body {
+    background-image: url("../img/board.jpg");
+    background-size: cover;
+    font-family: 'eraserdust';
+    font-size: 65pt;
+    color: white;
+}
+#question {
+/*    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left: auto;
+    margin-top: auto;
+    */
+}
+#question p{
+    text-align:center;
+}
+#question ol {
+    width: 60%;
+    margin:0px auto;
+}
+#categories table {
+	width: 100%;
+   text-align: center;
+	margin-left:-30px;
+}
+#categories table td{
+}
