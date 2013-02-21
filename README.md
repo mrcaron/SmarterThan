@@ -13,6 +13,11 @@ Implementation
 
 I wanted this to be fast and have no live internet connection necessary, so I developed it as a stand-alone handlebars/jquery app to run locally off the browser. As it turns out, some of the scouts didn't make it to the meeting and I wanted them to be able to catch up on their own, so I published it through Heroku as a Node/Express app serving static files. It gets the job done and since the whole thing is client side and the JSON is small, the game loads and runs rather quickly.
 
+Controls
+--------
+
+The game loads with a category selection. Click a given category and the first question in that category slides in to view. Use the arrow-left and -right keys on the keyboard to navigate to additional questions. Use the arrow-up key on the keyboard to navigate back to the category list.
+
 Invitation
 ----------
 
@@ -37,4 +42,8 @@ Todos
   * add hover support (won't work on mobile)
   * underline current selection?
   * also need to separate the categories in a more readable way
+
+* Add support for arrow key (and swipe) navigation of categories
+* Add category display on the question board so you always know what category you're in
+* Add question id # to question board so you know what question you're on
 
